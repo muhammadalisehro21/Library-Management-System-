@@ -5,8 +5,7 @@
 using namespace std;
 
 void clearScreen() {
-    system("cls"); // use "clear" for Linux/Mac
-}
+    system("cls"); }
 
 void header() {
     cout << "+======================================================+\n";
@@ -25,13 +24,11 @@ void menu() {
 }
 
 void pause() {
-    cout << "\nPress Enter to continue...";
+    cout << "Press Enter to continue...";
     cin.ignore();
-    cin.get();
-}
+    cin.get();}
 
-int main()
-{
+int main(){
     string books[100] = {
         "C++ Programming","Data Structures","Operating System","Computer Networks","Database System",
         "Artificial Intelligence","Machine Learning","Digital Logic","Compiler Design","Software Engineering",
@@ -42,8 +39,7 @@ int main()
         "Chinese Level 1","Chinese Level 2","Chinese Grammar","Chinese Conversation","HSK Preparation",
         "Web Development","HTML Basics","CSS Guide","JavaScript Basics","Python Programming",
         "Java Programming","Mobile App Development","Cyber Security","Cloud Computing","Data Science",
-        "Machine Vision","Robotics","Internet of Things","Big Data","Deep Learning"
-    };
+        "Machine Vision","Robotics","Internet of Things","Big Data","Deep Learning" };
 
     int totalBooks = 50;
     int choice;
@@ -60,26 +56,24 @@ int main()
 
         if(choice == 1)
         {
-            cout << "|------------------ BOOK LIST -------------------------|\n";
+            cout << "|------------------ BOOK LIST -------------------------|";
             cout << left << setw(5) << "No"
                  << setw(30) << "Title"
                  << setw(10) << "Shelf" << endl;
-            cout << "-------------------------------------------------------\n";
+            cout << "-------------------------------------------------------";
 
             for(int i=0;i<totalBooks;i++)
             {
                 cout << left << setw(5) << i+1
-                     << setw(30) << books[i]
-                     << setw(10) << (i/10)+1 << endl;
-            }
-        }
+                << setw(30) << books[i]
+                << setw(10) << (i/10)+1 << endl;} }
 
         else if(choice == 2)
         {
             string search;
             bool found=false;
 
-            cout << "|---------------- SEARCH BOOK -------------------------|\n";
+            cout << "|---------------- SEARCH BOOK -------------------------|";
             cout << "Enter Book Name: ";
             getline(cin,search);
 
@@ -87,40 +81,34 @@ int main()
             {
                 if(search == books[i])
                 {
-                    cout << "\n Book Found!\n";
+                    cout << " Book Found!\n";
                     cout << "Shelf Number: " << (i/10)+1 << endl;
                     found=true;
-                    break;
-                }
-            }
+                    break;}}
 
             if(!found)
-                cout << "\n Book not available.\n";
-        }
+                cout << " Book not available.";}
 
         else if(choice == 3)
         {
             if(totalBooks < 100)
             {
-                cout << "|---------------- ADD BOOK ----------------------------|\n";
+                cout << "|---------------- ADD BOOK ----------------------------|";
                 cout << "Enter New Book Name: ";
                 getline(cin, books[totalBooks]);
                 totalBooks++;
 
-                cout << "\n Book Added Successfully.\n";
-            }
+                cout << " Book Added Successfully.";}
             else
             {
-                cout << "\n Library is Full.\n";
-            }
-        }
+                cout << " Library is Full.";}}
 
         else if(choice == 4)
         {
             string del;
             bool found=false;
 
-            cout << "|---------------- DELETE BOOK -------------------------|\n";
+            cout << "|---------------- DELETE BOOK -------------------------|";
             cout << "Enter Book Name to Delete: ";
             getline(cin,del);
 
@@ -130,35 +118,27 @@ int main()
                 {
                     for(int j=i;j<totalBooks-1;j++)
                     {
-                        books[j] = books[j+1];
-                    }
+                        books[j] = books[j+1];}
                     totalBooks--;
 
-                    cout << "\n[?] Book Deleted Successfully.\n";
+                    cout << "Book Deleted Successfully.";
                     found=true;
-                    break;
-                }
-            }
+                    break;}}
 
             if(!found)
-                cout << "\n Book not found.\n";
-        }
+                cout << " Book not found."; }
 
         else if(choice == 5)
         {
-            cout << "\nThank you for using Nishat Library Management System.\n";
-        }
-
+            cout << "Thank you for using Nishat Library Management System."; }
         else
         {
-            cout << "\n Invalid Choice.\n";
-        }
+            cout << " Invalid Choice.";}
 
         if(choice != 5) pause();
 
     } while(choice != 5);
 
-    return 0;
-}
+    return 0;}
 
 
